@@ -1,0 +1,22 @@
+{% extends "auth.base.hbs" %}
+{% block content %}
+        <div class="form-group">
+          <form class="form-signin" action="/newuser" method="post">
+          {% module xsrf_form_html() %}
+          <img class="mb-4 mx-auto" src="/static/images/Bolidozor_logo.svg" alt="" style="width: 100%; max-height: 30vh;">
+          <h1 class="h3 mb-3 font-weight-light">Registration</h1>
+
+          <label for="inputPassword" class="sr-only">name</label>
+          <input name="name" type="text" id="inputPassword" class="form-control" placeholder="Name" required>
+
+          <label for="inputEmail" class="sr-only">Email address</label>
+          <input name="email" type="email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus>
+          
+          <label for="inputPassword" class="sr-only">Password</label>
+          <input name="password" type="password" id="inputPassword" class="form-control" placeholder="Password" required>
+          
+          <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
+          <p class="mt-5 mb-3 text-muted">&copy; 2018</p>
+        </form>
+    </div>
+{% end %}

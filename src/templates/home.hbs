@@ -1,0 +1,238 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
+
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js" integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous"></script>
+
+    <link rel="stylesheet" type="text/css" href="/static/libs/full-page/jquery.fullPage.css" />
+    <!-- <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script> -->
+    <script src="/static/libs/full-page/vendors/jquery.easings.min.js"></script>
+    <script type="text/javascript" src="/static/libs/full-page/vendors/scrolloverflow.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.9.1/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="/static/libs/full-page/jquery.fullPage.js"></script>
+
+    <style type="text/css">
+        
+        body{
+            min-height: 100%;
+            width: 100%;
+            margin: 0px;
+            padding: 0px;
+        }
+
+        .onepage{
+            width: 100%;
+            min-height: 100vh;
+            height: 100vh;
+            padding: 5rem;
+            padding-top: 0em;
+            padding-bottom: 0em;
+        }
+
+        .full-row{
+            height: 100%;
+        }
+
+        .jumbtron{
+            background-color: initial;
+        }
+
+
+        #page-intro{
+                background: linear-gradient(lightgrey, white);
+        }
+
+        #card-login{
+                background: linear-gradient(lightgrey, white);
+        }
+
+        #page-intro-title{
+            background-color: initial;
+            background-image: url(/static/images/mapa_gray.svg);
+            background-position: right bottom;
+            background-repeat: no-repeat;
+            background-size: contain;
+            height: 100%;
+        }
+
+        #page-about{
+            background-image: url(/static/images/es_full_transparent_ground.png);
+            background-position: bottom center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            height: 100vh;
+        }
+
+        #page-form{
+            background-image: url(/static/images/imo-map.png);
+            background-position: center center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            height: 100vh;
+        }
+
+        @media (max-width: 480px) {
+            .onepage{
+                padding: 1rem;
+                min-height: 100%;
+            }
+
+        }
+
+
+    </style>
+
+    <title>Hello, world!</title>
+  </head>
+  <body>
+    <div class="container-fluid" id="fullpage" style="padding: 0px; margin: 0px;">
+        <div class="onepage section" id="page-intro">
+            <div class="row full-row" style="padding-top: 5rem;">
+                <div class="col-sm-7 col-12 p-1" style="padding-top: 5rem;">
+                    <div class="jumbotron" id="page-intro-title">
+                      <div class="container">
+                        <h1 class="display-4">Najděte si svůj meteor!</h1>
+                        <p class="lead">Pomozte nám v nalezení vícestaničních meteorů naměřených mezinárodní detekční sítí Bolidozor pro další zpracovávání a počítání trajektorie letu.</p>    
+                    
+                        <div style="margin-right: auto; margin-left: auto;">
+                            <a type="button" class="btn btn-lg btn-outline-dark mr-3" href="#page-how">Jak začít</a>
+                            <a type="button" class="btn btn-lg btn-outline-dark mr-3" href="#page-about">O Bolidozoru</a>
+                            <a type="button" class="btn btn-lg btn-outline-dark" href="#page-form" >Nahlašte nový meteor</a>
+                        </div>
+                      </div>
+                    </div>
+                    
+                </div>
+                <div class="col-sm-5 col-12 pt-8">
+
+                    <div class="card px-5" id="card-login">
+                        <div class="card-content">
+                            <small>{{current_user}}</small>
+                            {% if current_user%}
+                            <div class="text-center">
+                                <h1>Jseš přihlášen! Vítej zpět, {{current_user['name']}}</h1>
+                                <div style="margin-right: auto; margin-left: auto;">
+                                    <a type="button" class="btn btn-lg btn-outline-success mr-3" href="/app/multimeteor">Chci hledat!</a>
+                                </div>
+                            </div>
+                            <h3>Mé výsledky..</h3>
+                            <p>Tady pak uvidíš své statistiky...</p>
+                            <p class="mt-5 mb-3 text-muted text-center">    <p class="mt-5 mb-3 text-muted text-center"><a href="/profile">Nastavení účtu</a> <a href="/logout">Odhlásit se</a> <br>&copy; 2018</p>
+                            {% else %}
+                            <div class="form-group">
+                                  <form class="form-signin" action="/login" method="post">
+                                  {% module xsrf_form_html() %}
+                                  <img class="mb-4 mx-auto" src="/static/images/Bolidozor_logo.svg" alt="" style="width: 100%; max-height: 30vh;">
+                                  <h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
+                                  {% if login_msg %}<div class="alert alert-danger" role="alert">
+                                    {% if login_msg is '1' %}
+                                        Přihlášení proběhlo v pořádku... :-)
+                                    {% elif login_msg is '2'%}
+                                        Přihlášení se nepovedlo: špatný email nebo heslo. Pro změnu hesla kontaktujte administrátora.
+                                    {% elif login_msg is '3'%}
+                                        Byl jsi úspěšně odhlášen... Těším se na další návštěvu.
+                                    {% else %}
+                                        Přihlášení se nepovedlo: neznámá chyba
+                                    {% end %}
+                                  </div>{%end%}
+                                  <label for="inputEmail" class="sr-only">Email address</label>
+                                  <input name="name" type="email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus>
+                                  <label for="inputPassword" class="sr-only">Password</label>
+                                  <input name="password" type="password" id="inputPassword" class="form-control" placeholder="Password" required>
+                                  <div class="checkbox mb-3">
+                                    <label>
+                                      <input type="checkbox" value="remember-me"> Remember me
+                                    </label>
+                                  </div>
+                                  <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
+                                  <p class="mt-5 mb-3 text-muted"><a href="/newuser">Registrovat</a> &copy; 2018</p>
+                                </form>
+                            </div>
+                            {% end %}
+                        </div>
+                    </div>
+                    
+
+                </div>
+
+            </div>
+        </div>
+        <div class="onepage section" id="page-about">
+            <h1 class=" display-4">O Bolidozoru</h1>
+            <p class="lead">
+                Meteory se dnes obvykle pozorují pomocí kamer, které každou noc snímají noční oblohu a při průletu meteoru ho zaznamenají. Bolidozor přináší alternativní způsob pozorování meteorů.
+
+                Prohlédnout si naměřená data můžete buď přímo na centrálním úložišti nebo v 
+            </p>
+        </div>
+        <div class="onepage section" id="page-how">
+            <h1 class=" display-4">Jak to funguje</h1>
+            <p>
+           
+            </p>
+        </div>
+        <div class="onepage section" id="page-help">
+            <h1 class=" display-4">Jak můžu pomoci</h1>
+            <p>
+                BolidozorZOO je takzvaný <a href="https://cs.wikipedia.org/wiki/Ob%C4%8Dansk%C3%A1_v%C4%9Bda">Citizen-science</a> projekt, kdy nám dobrovolníci z celého světa pomáhají hledat zajímavé radiové odrazy od meteorů.
+            </p><p>
+                I vy se díky tomu projektu můžete zapojit a pomoct vybírat zajímavé meteory. Stačí se pouze na těchto stránkách přihlásit a začít hledat. Podrobnější návod a popis co vidíte naleznete na stránce 'o datech'.
+
+            </p>
+        </div>
+        <div class="onepage section" id="page-form">
+            <h1 class=" display-4">Viděli jste letět bolid?</h1>
+            <p class="lead display-5">
+                Viděli jste letět velmi jasný meteor a rádi by jste ho nahlásili někomu kompetentnímu?</p><p class="lead"> Můžete tak nyní učinit prostřednictvím mezinárodní databáze bolidů spravované IMO (International meteor organisation). Veškerá nahlášená data budou veřejně k dispozici pro použití jak amatérskými pozorovateli, tak i profesionálními astronomy. Díky tomu můžete přispět k určení dráhy průletu. Vyplnění formuláře je jednoduché a zvládne ho kdokoliv. Formulář je k dispozici v češtině.</p>
+                <a type="button" class="btn btn-success btn-lg" href="http://fireball.imo.net">Nahlásit bolid</a>
+            <p class="lead">
+                Vaše hlášení může pomoci k ...
+            </p>
+        </div>
+
+    </div>
+
+
+
+<script type="text/javascript">
+    
+
+    $(document).ready(function() {
+        $('#fullpage').fullpage({
+            anchors: ['firstPage', 'secondPage', '3rdPage'],
+            sectionsColor: ['#C63D0F', '#1BBC9B', '#7E8F7C'],
+            navigation: true,
+            navigationPosition: 'right',
+            navigationTooltips: ['First', 'Second', 'Third'],
+
+            controlArrows: true,
+            verticalCentered: true,
+            sectionsColor : ['#ccc', '#fff'],
+
+            lazyLoading: false,
+            scrollBar: true,
+
+            //Scrolling
+            css3: true,
+            scrollingSpeed: 1000,
+            autoScrolling: true,
+            fitToSection: true,
+            fitToSectionDelay: 0000,
+        });
+    });
+</script>
+
+  </body>
+</html>

@@ -1,0 +1,8 @@
+User-agent: googlebot        # all Google services
+Disallow: /private/          # disallow this directory
+
+User-agent: googlebot-news   # only the news service
+Disallow: /                  # disallow everything
+
+User-agent: *                # any robot
+Disallow: /something/        # disallow this directory
