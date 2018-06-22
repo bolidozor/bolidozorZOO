@@ -6,10 +6,10 @@
 
 import tornado
 import tornado.web
-import pymongo
+#import pymongo
 import hashlib, uuid
 import functools
-import bson
+#import bson
 
 import pymysql.cursors
 import MySQLdb as mdb

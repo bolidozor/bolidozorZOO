@@ -1,0 +1,65 @@
+{% extends "app.base.hbs" %}
+
+
+{% block content %}
+<h1>HI, multimet</h1>
+
+<div class="row">
+	<div class="col-8"><div class="card">
+
+		<img src="" class="meteor_img" style="width: 100%; min-height: 2cm;">
+		<div class="card-body">
+			aaa
+		</div>
+		<div class="card-body">
+			<div class="row form-group">
+				<label class="col-3 col-form-label">Head-echo</label>
+				<input  class="col-1 form-control" type="checkbox" name="">
+				<select class="col-8 form-control" ></select>
+			</div>
+		
+			<div class="row form-group">
+				<label class="col-3 col-form-label">Ionizační stopa</label>
+				<input  class="col-1 form-control" type="checkbox" name="">
+				<select class="col-8 form-control" ></select>
+			</div>
+		
+			<div class="row form-group">
+				<label class="col-3 col-form-label"></label>
+				<input  class="col-1 form-control" type="checkbox" name="">
+				<select class="col-8 form-control" ></select>
+			</div>
+		
+			<div class="row form-group">
+				<div class="btn-group btn-block">
+					<button class="form-control btn btn-success">Další meteor</button>
+					<button class="form-control btn btn-success">Vybrat podle data</button>
+					<button class="form-control btn btn-danger">Na obrázku je více meteorů</button>
+				</div>
+			</div>
+
+		</div>
+	
+
+	</div></div>
+	<div class="col-4"><div class="card card-body">
+		<h3>Návod na klasifikaci meteorů</h3>
+		<div class="" id="navod_content">
+			<p>
+				Vítáme Vás v tomto rozhraní pro klasifikaci naměřených dat mezinárodní sítí Bolidozor. Díky tomuto pomůžete určit trajektorie meteorů atmosférou Země a můžete pomoci k určení původu vesmírného tělesa.
+			</p>
+			<p>
+				Nyní můžete začít stisknutím na zelené tlačítko <button class="btn btn-sm btn-success">Načíst další</button>, které vám z rozsáhlé databáze načte nějaký meteor, který by mohl být zajímavý. Další možnost je vybrat si meteor podle času kliknutím na tlačítko <button class="btn btn-sm btn-success">Vybrat podle data</button>
+			</p>
+			<p>
+				Pod obrázkem se zobrazý dotazník, který Vám klade určité otázky, které potřebujeme k dalšímu zpracování meteoru. Při najetí kurzorem na popisek u každého pole, v tomto sloupci se Vám zobrazí jednoduchý návod, podle kterého to urcitě určíte dobře. Pokud i tak si nebudete jisti, je lepší říct 'nemůžu určit' než vkládat špatná data.
+			</p>
+			<p>
+				Děkujeme za pomoc!
+			</p>
+
+		</div>
+
+	</div></div>
+</div>
+{% end %}

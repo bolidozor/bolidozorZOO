@@ -17,7 +17,7 @@ import os
 
 #from handlers import rtmap, count, multibolid, auth, admin, stations, around, timeline
 from handlers import admin, auth
-from handlers.app import multimeteor
+from handlers.app import multimeteor, classification
 from handlers import _sql, BaseHandler
 
 
@@ -39,7 +39,7 @@ class ClientsHandler(web.RequestHandler):
         self.render("index.html")
 
 
-tornado.options.define("port", default=8880, help="port", type=int)
+tornado.options.define("port", default=8881, help="port", type=int)
 tornado.options.define("debug", default=True, help="debug mode")
 tornado.options.parse_config_file("/home/roman/BolidozorZOO.conf")
 
@@ -47,13 +47,15 @@ class WebApp(tornado.web.Application):
 
     def __init__(self, config={}):
 
-        name = 'ZVPP'
-        server = 'arom-weather.local'
+        name = 'BolidozorZOO'
+        server = 'rtbolidozor.cz'
 
         server_url = '{}:{}'.format(server, tornado.options.options.port)
+        print(server_url)
 
         handlers =[
             (r'/', HomePage),
+            (r'/aa/', classification.get_meteor),
 
             #(r'/login/oauth/github', auth.),
             (r'/login', auth.login),
@@ -64,7 +66,8 @@ class WebApp(tornado.web.Application):
             (r'/newuser', auth.registration),
 
             (r'/app/multimeteor', multimeteor.base),
-            
+            (r'/app/classification', classification.base),
+
             (r'/(favicon.ico)', web.StaticFileHandler, {'path': '.'}),
             (r'/(rest_api_example.png)', web.StaticFileHandler, {'path': './'}),
             (r"/(robots.txt)", tornado.web.StaticFileHandler, {'path': './static/'}),
